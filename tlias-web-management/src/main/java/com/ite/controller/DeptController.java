@@ -3,12 +3,11 @@ package com.ite.controller;
 import com.ite.pojo.Dept;
 import com.ite.pojo.Result;
 import com.ite.service.DeptService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+//调用service层，响应结果
 @RestController
 public class DeptController {
     @Autowired
@@ -36,4 +35,12 @@ public class DeptController {
         return Result.success();
 
     }
+    /*添加部门*/
+    @PostMapping("/depts")
+    public Result add(@RequestBody Dept dept) {
+        System.out.println("添加部门数据" +  dept);
+        deptService.add(dept);
+        return Result.success();
+    }
+
 }
