@@ -32,4 +32,18 @@ public class DeptServiceImpl implements DeptService {
         //2.调用mapper接口方法插入数据
         deptMapper.insert(dept);
     }
+
+    @Override
+    public Dept getById(Integer id) {
+        return deptMapper.getById(id);
+    }
+
+    @Override
+    public void updateDept(Dept dept) {
+        //1.补全基础属性
+        dept.setUpdateTime(LocalDateTime.now());
+        deptMapper.updateDept(dept);
+    }
+
+
 }
