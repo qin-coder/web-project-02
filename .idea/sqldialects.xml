@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/tlias-web-management/src/main/resources/com/ite/mapper/empMapper.xml" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/tlias-web-management/src/main/java/com/ite/mapper/EmpMapper.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/tlias-web-management/src/main/resources/com/ite/mapper/EmpExprMapper.xml" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/tlias-web-management/src/main/resources/com/ite/mapper/EmpMapper.xml" dialect="MySQL" />
   </component>
 </project>

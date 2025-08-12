@@ -12,4 +12,6 @@ import java.time.LocalDate;
 public interface EmpService {
     /*分页查询*/
     PageResult<Emp> page(EmpQueryParam empQueryParam);
+
+    void add(Emp emp);
 }
