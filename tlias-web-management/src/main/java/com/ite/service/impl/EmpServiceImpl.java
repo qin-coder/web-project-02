@@ -4,11 +4,13 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.ite.mapper.EmpMapper;
 import com.ite.pojo.Emp;
+import com.ite.pojo.EmpQueryParam;
 import com.ite.pojo.PageResult;
 import com.ite.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -30,11 +32,11 @@ public class EmpServiceImpl implements EmpService {
 //    }
 
     @Override
-    public PageResult<Emp> page(Integer page, Integer pageSize) {
-            //1.设置分页参数
-        PageHelper.startPage(page, pageSize);
+    public PageResult<Emp> page(EmpQueryParam empQueryParam) {
+        //1.设置分页参数
+        PageHelper.startPage(empQueryParam.getPage(), empQueryParam.getPageSize());
         //2.执行查询
-        List<Emp> empList = empMapper.list();
+        List<Emp> empList = empMapper.list(empQueryParam);
         //3.解析查询结果并封装
         Page<Emp> p = (Page<Emp>) empList;
         return new PageResult<Emp>(p.getTotal(), p.getResult());
