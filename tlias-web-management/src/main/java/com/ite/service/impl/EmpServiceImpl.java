@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -26,17 +24,6 @@ public class EmpServiceImpl implements EmpService {
     private EmpLogService empLogService;
 
 
-//    @Override
-//    public PageResult<Emp> page(Integer page, Integer pageSize) {
-//        //1.调用mapper接口，查询总记录数
-//        long total = empMapper.count();
-//        //2.调用mapper接口，查询结果列表
-//        Integer start = (page - 1) * pageSize;
-//        List<Emp> rows = empMapper.list(start, pageSize);
-//        //3.组装PageResult
-//        return new PageResult<Emp>(total, rows);
-//
-//    }
 
     @Override
     public PageResult<Emp> page(EmpQueryParam empQueryParam) {
