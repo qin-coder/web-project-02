@@ -2,13 +2,11 @@ package com.ite.mapper;
 
 import com.ite.pojo.Emp;
 import com.ite.pojo.EmpQueryParam;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface EmpMapper {
@@ -30,6 +28,8 @@ public interface EmpMapper {
     Emp getById(Integer id);
 
     void updateById(Emp emp);
+    @MapKey("pos")
+    List<Map<String,Object>> countEmpJobData();
 
-    ;
+    List<Map> countEmpGenderData();
 }
