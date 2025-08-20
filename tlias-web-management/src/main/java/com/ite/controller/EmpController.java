@@ -47,4 +47,17 @@ public class EmpController {
         empService.delete(ids);
         return Result.success();
     }
+
+    @GetMapping("/{id}")
+    public Result getInfo(@PathVariable Integer id) {
+        log.info("根据id查询员工的详细信息");
+        Emp emp = empService.getInfo(id);
+        return Result.success(emp);
+    }
+    @PutMapping
+    public Result update(@RequestBody Emp emp) {
+        log.info("修改员工:{}", emp);
+        empService.update(emp);
+        return Result.success();
+    }
 }
