@@ -4,8 +4,6 @@ import com.ite.pojo.Dept;
 import com.ite.pojo.Result;
 import com.ite.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
-import org.mybatis.logging.Logger;
-import org.mybatis.logging.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
