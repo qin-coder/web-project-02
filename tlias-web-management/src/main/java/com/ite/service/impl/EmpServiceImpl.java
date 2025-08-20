@@ -62,7 +62,6 @@ public class EmpServiceImpl implements EmpService {
 
         }
 
-
     }
     @Transactional(rollbackFor = {Exception.class})
     @Override
