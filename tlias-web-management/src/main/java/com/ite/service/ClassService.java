@@ -10,4 +10,8 @@ public interface ClassService {
     List<Class> findAll();
 
     PageResult page(String name, LocalDate begin, LocalDate end, Integer page, Integer pageSize);
+
+    Class findById(Integer id);
+
+    void deleteById(Integer id);
 }

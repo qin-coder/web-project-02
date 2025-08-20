@@ -5,10 +5,7 @@ import com.ite.service.ClassService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.ite.pojo.Class;
 
 import java.time.LocalDate;
@@ -39,5 +36,19 @@ public class ClassController {
                        @RequestParam(defaultValue = "10")Integer pageSize){
         PageResult pageResult = classService.page(name , begin , end , page , pageSize);
         return Result.success(pageResult);
+    }/*根据id查询班级*/
+    @GetMapping("/{id}")
+    public Result findById(@PathVariable Integer id) {
+        Class clazz = classService.findById(id);
+        return Result.success(clazz);
     }
+    /*删除班级*/
+    @DeleteMapping("/{id}")
+    public Result delete(@PathVariable Integer id) {
+        log.info("删除班级:{}", id);
+        classService.deleteById(id);
+        return Result.success();
+    }
+
+
 }

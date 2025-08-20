@@ -29,4 +29,14 @@ public class ClassServiceImpl implements ClassService {
 
         return new PageResult(p.getTotal(), p.getResult());
     }
+
+    @Override
+    public Class findById(Integer id) {
+        return classMapper.findById(id);
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        classMapper.deleteById(id);
+    }
 }
