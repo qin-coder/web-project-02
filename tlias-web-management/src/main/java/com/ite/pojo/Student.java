@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -28,4 +29,6 @@ public class Student {
     private LocalDateTime updateTime; //修改时间
 
     private String clazzName;//班级名称
+
+    private List<Student> studentList;
 }

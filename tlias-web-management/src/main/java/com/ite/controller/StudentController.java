@@ -7,10 +7,11 @@ import com.ite.pojo.Student;
 import com.ite.pojo.StudentQueryParam;
 import com.ite.service.StudentService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Insert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -25,5 +26,19 @@ public class StudentController {
         PageResult<Student> pageResult =
                 studentService.page(studentQueryParam);
         return Result.success(pageResult);
+    }
+    /*删除学员*/
+    @DeleteMapping("/{ids}")
+    public Result delete(@PathVariable List<Integer> ids) {
+        log.info("批量删除：{}", ids);
+        studentService.delete(ids);
+        return Result.success();
+    }
+    /*4.3 添加学员*/
+    @PostMapping
+    public Result add(@RequestBody Student student) {
+        log.info("添加学员:{}", student);
+        studentService.add(student);
+        return Result.success();
     }
 }
