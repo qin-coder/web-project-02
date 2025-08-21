@@ -41,11 +41,18 @@ public class StudentController {
         studentService.add(student);
         return Result.success();
     }
-    /*4.4 根据ID查询*/
+    /* 根据ID查询*/
     @GetMapping("/{id}")
     public Result getInfo(@PathVariable Integer id) {
         log.info("查询ID为{}的学员", id);
         Student student = studentService.getInfo(id);
         return Result.success(student);
+    }
+    /* 修改学员*/
+    @PutMapping
+    public Result update(@RequestBody Student student) {
+        log.info("修改学员:{}", student);
+        studentService.update(student);
+        return Result.success();
     }
 }

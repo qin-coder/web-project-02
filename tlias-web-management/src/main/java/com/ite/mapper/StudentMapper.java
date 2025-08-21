@@ -2,10 +2,7 @@ package com.ite.mapper;
 
 import com.ite.pojo.Student;
 import com.ite.pojo.StudentQueryParam;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -41,4 +38,20 @@ public interface StudentMapper {
             "FROM student\n" +
             "WHERE id = #{id};")
     Student getInfo(Integer id);
+    @Update("UPDATE student\n" +
+            "SET\n" +
+            "    name = #{name},\n" +
+            "    no = #{no},\n" +
+            "    gender = #{gender},\n" +
+            "    phone = #{phone},\n" +
+            "    id_card = #{idCard},\n" +
+            "    is_college = #{isCollege},\n" +
+            "    address = #{address},\n" +
+            "    degree = #{degree},\n" +
+            "    graduation_date = #{graduationDate},\n" +
+            "    clazz_id = #{clazzId},\n" +
+            "    update_time = #{updateTime}\n" +
+            "WHERE id = #{id};")
+
+    void updateById(Student student);
 }
