@@ -48,4 +48,12 @@ public class ReportController {
         List<Map> degreeList = reportService.getStudentDegreeData();
         return Result.success(degreeList);
     }
+    /*班级人数统计*/
+    /*班级人数统计*/
+    @GetMapping("/studentCountData")
+    public Result getClazzStudentCount(){
+        log.info("统计班级人数信息");
+        Map<String, Object> clazzCountList = reportService.getClazzStudentCount();
+        return Result.success(clazzCountList);
+    }
 }

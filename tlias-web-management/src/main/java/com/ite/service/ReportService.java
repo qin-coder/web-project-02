@@ -15,4 +15,6 @@ public interface ReportService {
     List<Map> getEmpGenderData();
 
     List<Map> getStudentDegreeData();
+
+    Map<String, Object> getClazzStudentCount();
 }

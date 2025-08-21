@@ -5,6 +5,7 @@ import com.ite.pojo.Class;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface ClassMapper {
@@ -31,4 +32,15 @@ public interface ClassMapper {
             "begin_date = #{beginDate},end_date = #{endDate}," +
             "master_id=#{masterId},subject=#{subject} where id = #{id}")
     void updateClass(Class clazz);
+    /**
+     * 统计每个班级的学生人数
+     * 返回格式: [{"clazzName": "Java班", "studentCount": 25}, ...]
+     */
+    @Select("SELECT c.name as clazzName, COUNT(s.id) as studentCount " +
+            "FROM class c " +
+            "LEFT JOIN student s ON c.id = s.clazz_id " +
+            "GROUP BY c.id, c.name " +
+            "ORDER BY studentCount DESC " +
+            "LIMIT 5")  // 限制返回5条数据
+    List<Map<String, Object>> getClazzStudentCount();
 }
