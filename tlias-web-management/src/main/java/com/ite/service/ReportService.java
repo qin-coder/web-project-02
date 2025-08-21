@@ -13,4 +13,6 @@ public interface ReportService {
     JobOption getEmpJobData();
 
     List<Map> getEmpGenderData();
+
+    List<Map> getStudentDegreeData();
 }

@@ -1,6 +1,7 @@
 package com.ite.service.impl;
 
 import com.ite.mapper.EmpMapper;
+import com.ite.mapper.StudentMapper;
 import com.ite.pojo.JobOption;
 import com.ite.service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ public class ReportServiceImpl implements ReportService {
 
     @Autowired
     private EmpMapper empMapper;
+    @Autowired
+    private StudentMapper studentMapper;
         
     @Override
     public JobOption getEmpJobData() {
@@ -26,5 +29,10 @@ public class ReportServiceImpl implements ReportService {
     @Override
     public List<Map> getEmpGenderData() {
         return empMapper.countEmpGenderData();
+    }
+
+    @Override
+    public List<Map> getStudentDegreeData() {
+        return studentMapper.countStudentDegreeData();
     }
 }

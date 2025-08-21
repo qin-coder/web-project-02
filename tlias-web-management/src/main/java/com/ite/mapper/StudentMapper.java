@@ -5,6 +5,7 @@ import com.ite.pojo.StudentQueryParam;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface StudentMapper {
@@ -61,4 +62,6 @@ public interface StudentMapper {
             "update_time = NOW() " +
             "WHERE id = #{id}")
     void handleViolation(@Param("id") Integer id, @Param("score") Integer score);
+    @MapKey("pos")
+    List<Map> countStudentDegreeData();
 }

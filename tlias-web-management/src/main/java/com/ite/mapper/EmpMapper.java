@@ -30,6 +30,6 @@ public interface EmpMapper {
     void updateById(Emp emp);
     @MapKey("pos")
     List<Map<String,Object>> countEmpJobData();
-
+    @MapKey("pos")
     List<Map> countEmpGenderData();
 }

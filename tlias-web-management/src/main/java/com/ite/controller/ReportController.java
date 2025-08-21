@@ -39,4 +39,13 @@ public class ReportController {
         List<Map> genderList = reportService.getEmpGenderData();
         return Result.success(genderList);
     }
+    /**
+     * 统计学员学历信息
+     */
+    @GetMapping("/studentDegreeData")
+    public Result getStudentDegreeData(){
+        log.info("统计学员学历信息");
+        List<Map> degreeList = reportService.getStudentDegreeData();
+        return Result.success(degreeList);
+    }
 }
