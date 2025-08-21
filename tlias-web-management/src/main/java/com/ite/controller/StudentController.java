@@ -34,11 +34,18 @@ public class StudentController {
         studentService.delete(ids);
         return Result.success();
     }
-    /*4.3 添加学员*/
+    /*添加学员*/
     @PostMapping
     public Result add(@RequestBody Student student) {
         log.info("添加学员:{}", student);
         studentService.add(student);
         return Result.success();
+    }
+    /*4.4 根据ID查询*/
+    @GetMapping("/{id}")
+    public Result getInfo(@PathVariable Integer id) {
+        log.info("查询ID为{}的学员", id);
+        Student student = studentService.getInfo(id);
+        return Result.success(student);
     }
 }

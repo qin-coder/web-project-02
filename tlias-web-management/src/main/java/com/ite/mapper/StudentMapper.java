@@ -5,6 +5,7 @@ import com.ite.pojo.StudentQueryParam;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -23,4 +24,21 @@ public interface StudentMapper {
             "#{graduationDate}, #{clazzId},#{createTime}," +
             "#{updateTime})")
     void insertBatch(Student student);
+
+    @Select("SELECT\n" +
+            "    name,\n" +
+            "    no,\n" +
+            "    gender,\n" +
+            "    phone,\n" +
+            "    id_card,\n" +
+            "    is_college,\n" +
+            "    address,\n" +
+            "    degree,\n" +
+            "    graduation_date,\n" +
+            "    clazz_id,\n" +
+            "    create_time,\n" +
+            "    update_time\n" +
+            "FROM student\n" +
+            "WHERE id = #{id};")
+    Student getInfo(Integer id);
 }

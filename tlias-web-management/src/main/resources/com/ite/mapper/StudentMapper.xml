@@ -63,6 +63,8 @@
     </delete>
 
 
+
+
     <!-- 动态条件查询 -->
     <select id="list" resultType="com.ite.pojo.Student">
         select s.*, c.name clazzName from student s left join class c on s.clazz_id = c.id

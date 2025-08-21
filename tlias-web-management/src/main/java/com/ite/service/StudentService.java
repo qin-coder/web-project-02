@@ -16,4 +16,6 @@ public interface StudentService  {
     void delete(List<Integer> ids);
 
     void add(Student student);
+
+    Student getInfo(Integer id);
 }
