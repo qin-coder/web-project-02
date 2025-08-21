@@ -38,6 +38,7 @@ public interface StudentMapper {
             "FROM student\n" +
             "WHERE id = #{id};")
     Student getInfo(Integer id);
+
     @Update("UPDATE student\n" +
             "SET\n" +
             "    name = #{name},\n" +
@@ -52,6 +53,12 @@ public interface StudentMapper {
             "    clazz_id = #{clazzId},\n" +
             "    update_time = #{updateTime}\n" +
             "WHERE id = #{id};")
-
     void updateById(Student student);
+
+    @Update("UPDATE student SET " +
+            "violation_count = IFNULL(violation_count, 0) + 1, " +
+            "violation_score = IFNULL(violation_score, 0) + #{score}, " +
+            "update_time = NOW() " +
+            "WHERE id = #{id}")
+    void handleViolation(@Param("id") Integer id, @Param("score") Integer score);
 }

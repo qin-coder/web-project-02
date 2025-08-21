@@ -20,4 +20,6 @@ public interface StudentService  {
     Student getInfo(Integer id);
 
     void update(Student student);
+
+    void handleViolation(Integer id, Integer score);
 }
