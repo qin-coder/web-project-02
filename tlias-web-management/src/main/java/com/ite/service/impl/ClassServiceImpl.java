@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.ite.pojo.Class;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -38,5 +39,14 @@ public class ClassServiceImpl implements ClassService {
     @Override
     public void deleteById(Integer id) {
         classMapper.deleteById(id);
+    }
+
+    @Override
+    public void add(Class clazz) {
+        //1.补全基础属性
+        clazz.setCreateTime(LocalDateTime.now());
+        clazz.setUpdateTime(LocalDateTime.now());
+        //2.调用mapper接口方法插入数据
+        classMapper.add(clazz);
     }
 }

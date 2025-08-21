@@ -49,6 +49,13 @@ public class ClassController {
         classService.deleteById(id);
         return Result.success();
     }
+    /*添加班级*/
+    @PostMapping
+    public Result add(@RequestBody Class clazz) {
+        log.info("添加班级:{}", clazz);
+        classService.add(clazz);
+        return Result.success();
+    }
 
 
 }

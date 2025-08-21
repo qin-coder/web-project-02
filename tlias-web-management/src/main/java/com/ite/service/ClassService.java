@@ -14,4 +14,6 @@ public interface ClassService {
     Class findById(Integer id);
 
     void deleteById(Integer id);
+
+    void add(Class clazz);
 }
