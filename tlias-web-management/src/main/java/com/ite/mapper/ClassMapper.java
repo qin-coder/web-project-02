@@ -1,9 +1,6 @@
 package com.ite.mapper;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import com.ite.pojo.Class;
 
 import java.time.LocalDate;
@@ -24,7 +21,14 @@ public interface ClassMapper {
     @Delete("delete from class where id = ${id}")
     void deleteById(Integer id);
 
-    @Insert("insert into class(name,room,begin_date,end_date,master_id,subject) " +
-            "values(#{name},#{room},#{beginDate},#{endDate},#{masterId},#{subject})")
+    @Insert("insert into class(name,room,begin_date,end_date," +
+            "master_id,subject) " +
+            "values(#{name},#{room},#{beginDate},#{endDate}," +
+            "#{masterId},#{subject})")
     void add(Class clazz);
+
+    @Update("update class set name = #{name},room = #{room}," +
+            "begin_date = #{beginDate},end_date = #{endDate}," +
+            "master_id=#{masterId},subject=#{subject} where id = #{id}")
+    void updateClass(Class clazz);
 }

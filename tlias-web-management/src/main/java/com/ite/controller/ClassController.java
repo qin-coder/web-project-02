@@ -56,6 +56,13 @@ public class ClassController {
         classService.add(clazz);
         return Result.success();
     }
+    /*修改班级*/
+    @PutMapping
+    public Result update(@RequestBody Class clazz) {
+        log.info("修改班级:{}", clazz);
+        classService.update(clazz);
+        return Result.success();
+    }
 
 
 }

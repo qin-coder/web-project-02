@@ -49,4 +49,10 @@ public class ClassServiceImpl implements ClassService {
         //2.调用mapper接口方法插入数据
         classMapper.add(clazz);
     }
+
+    @Override
+    public void update(Class clazz) {
+        clazz.setUpdateTime(LocalDateTime.now());
+        classMapper.updateClass(clazz);
+    }
 }

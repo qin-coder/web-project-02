@@ -16,4 +16,6 @@ public interface ClassService {
     void deleteById(Integer id);
 
     void add(Class clazz);
+
+    void update(Class clazz);
 }
