@@ -40,7 +40,6 @@ public interface ClassMapper {
             "FROM class c " +
             "LEFT JOIN student s ON c.id = s.clazz_id " +
             "GROUP BY c.id, c.name " +
-            "ORDER BY studentCount DESC " +
-            "LIMIT 5")  // 限制返回5条数据
+            "ORDER BY studentCount DESC " )
     List<Map<String, Object>> getClazzStudentCount();
 }

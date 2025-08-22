@@ -2,6 +2,7 @@ package com.ite.service;
 
 import com.ite.pojo.Emp;
 import com.ite.pojo.EmpQueryParam;
+import com.ite.pojo.LoginInfo;
 import com.ite.pojo.PageResult;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
@@ -22,4 +23,7 @@ public interface EmpService {
     Emp getInfo(Integer id);
 
     void update(Emp emp);
+
+    /*员工登录*/
+    LoginInfo login(Emp emp);
 }

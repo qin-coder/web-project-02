@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
+
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -23,7 +24,6 @@ public class EmpServiceImpl implements EmpService {
     private EmpExprMapper empExprMapper;
     @Autowired
     private EmpLogService empLogService;
-
 
 
     @Override
@@ -64,6 +64,7 @@ public class EmpServiceImpl implements EmpService {
         }
 
     }
+
     @Transactional(rollbackFor = {Exception.class})
     @Override
     public void delete(List<Integer> ids) {
@@ -78,6 +79,7 @@ public class EmpServiceImpl implements EmpService {
     public Emp getInfo(Integer id) {
         return empMapper.getById(id);
     }
+
     @Transactional
     @Override
     public void update(Emp emp) {
@@ -91,9 +93,23 @@ public class EmpServiceImpl implements EmpService {
         //3. 新增员工的工作经历数据 【新增新的】
         Integer empId = emp.getId();
         List<EmpExpr> exprList = emp.getExprList();
-        if(!CollectionUtils.isEmpty(exprList)){
+        if (!CollectionUtils.isEmpty(exprList)) {
             exprList.forEach(empExpr -> empExpr.setEmpId(empId));
             empExprMapper.insertBatch(exprList);
         }
+    }
+
+    @Override
+    public LoginInfo login(Emp emp) {
+        //1.调用mapper接口，根据用户名密码查询员工信息
+        Emp e = empMapper.selectByUsernameAndPassword(emp);
+        //2.判断员工信息是否为空，存在，返回组装的登录信息
+        if (e != null) {
+
+            return new LoginInfo(e.getId(), e.getUsername(),
+                    e.getName(),"");
+        }
+        //3.不存在，返回null
+        return null;
     }
 }

@@ -28,8 +28,14 @@ public interface EmpMapper {
     Emp getById(Integer id);
 
     void updateById(Emp emp);
+
     @MapKey("pos")
-    List<Map<String,Object>> countEmpJobData();
+    List<Map<String, Object>> countEmpJobData();
+
     @MapKey("pos")
     List<Map> countEmpGenderData();
+
+    @Select("select id,username,name from emp where username = " +
+            "#{username} and password = #{password}")
+    Emp selectByUsernameAndPassword(Emp emp);
 }
