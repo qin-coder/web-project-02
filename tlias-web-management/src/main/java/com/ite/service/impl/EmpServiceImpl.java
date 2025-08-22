@@ -7,6 +7,7 @@ import com.ite.mapper.EmpMapper;
 import com.ite.pojo.*;
 import com.ite.service.EmpLogService;
 import com.ite.service.EmpService;
+import com.ite.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +15,9 @@ import org.springframework.util.CollectionUtils;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class EmpServiceImpl implements EmpService {
@@ -105,9 +108,13 @@ public class EmpServiceImpl implements EmpService {
         Emp e = empMapper.selectByUsernameAndPassword(emp);
         //2.判断员工信息是否为空，存在，返回组装的登录信息
         if (e != null) {
-
+            //生成jwt令牌
+            Map<String, Object> claims = new HashMap<>();
+            claims.put("id", e.getId());
+            claims.put("username", e.getUsername());
+            String jwt = JwtUtils.generateJwt(claims);
             return new LoginInfo(e.getId(), e.getUsername(),
-                    e.getName(),"");
+                    e.getName(), jwt);
         }
         //3.不存在，返回null
         return null;
