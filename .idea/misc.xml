@@ -5,7 +5,14 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/tlias-web-management/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-aop-quickstart/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../BaiduNetdiskDownload/资料/13. 后端Web进阶(AOP)/资料/01. Aop入门/springboot-aop-quickstart/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/../../../BaiduNetdiskDownload/资料/13. 后端Web进阶(AOP)/资料/01. Aop入门/springboot-aop-quickstart/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="21" project-jdk-type="JavaSDK">

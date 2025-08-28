@@ -1,5 +1,6 @@
 package com.ite.controller;
 
+import com.ite.anno.Log;
 import com.ite.pojo.Dept;
 import com.ite.pojo.Result;
 import com.ite.service.DeptService;
@@ -26,7 +27,7 @@ public class DeptController {
         List<Dept> deptList = deptService.findAll();
         return Result.success(deptList);
     }
-
+    @Log
     //删除部门数据
     @DeleteMapping
 //    public Result delete(HttpServletRequest  request) {
@@ -36,6 +37,7 @@ public class DeptController {
 //        return Result.success();
 //
 //    }
+
     public Result delete(Integer id) {
         log.info("删除部门数据: {}", id);
         //System.out.println("删除部门数据" + id);
@@ -43,7 +45,7 @@ public class DeptController {
         return Result.success();
 
     }
-
+    @Log
     /*添加部门*/
     @PostMapping
     public Result add(@RequestBody Dept dept) {
@@ -52,7 +54,7 @@ public class DeptController {
         deptService.add(dept);
         return Result.success();
     }
-
+    @Log
     /*根据id查询部门*/
     @GetMapping("{id}")
     public Result getInfo(@PathVariable Integer id) {
@@ -61,7 +63,7 @@ public class DeptController {
         Dept dept = deptService.getById(id);
         return Result.success(dept);
     }
-
+    @Log
     /*修改部门*/
     @PutMapping
     public Result update(@RequestBody Dept dept) {
