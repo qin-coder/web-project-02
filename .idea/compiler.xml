@@ -15,6 +15,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="springboot-web-config" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8">
@@ -28,6 +29,7 @@
       <module name="springboot-aop-quickstart" options="-parameters" />
       <module name="springboot-aop-quickstart (1)" options="-parameters" />
       <module name="springboot-aop-quickstart (2)" options="-parameters" />
+      <module name="springboot-web-config" options="-parameters" />
       <module name="tlias-web-management" options="-parameters" />
     </option>
   </component>
